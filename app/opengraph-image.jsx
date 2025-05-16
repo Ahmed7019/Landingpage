@@ -8,10 +8,10 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image() {
-  // Load the Cairo font directly
+  // Load the Cairo font in TTF format
   const cairoFont = await fetch(
     new URL(
-      "https://fonts.gstatic.com/s/cairo/v20/SLXVc1nY6HkvangtZmpcWmhzfH5lWWgcQyyS4J0.woff2"
+      "https://fonts.gstatic.com/s/cairo/v20/SLXVc1nY6HkvangtZmpcWmhzfH5lWWgcQyyS4J0.ttf"
     )
   ).then((res) => res.arrayBuffer());
 
