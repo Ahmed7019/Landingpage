@@ -106,21 +106,18 @@ export default function EnhancedForm() {
     setFormFeedback("");
 
     try {
-      // محاكاة طلب API
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-      // في الإنتاج، استبدل هذا بطلب API حقيقي
-      // const response = await fetch("/api/contact", {
-      //   method: "POST",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify(formData),
-      // })
-
-      // if (!response.ok) {
-      //   throw new Error("فشل إرسال النموذج")
-      // }
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || "فشل إرسال النموذج");
+      }
 
       setSubmitStatus("success");
       setFormData(initialFormData);
@@ -129,7 +126,9 @@ export default function EnhancedForm() {
     } catch (error) {
       console.error("Error submitting form:", error);
       setSubmitStatus("error");
-      setFormFeedback("حدث خطأ أثناء إرسال النموذج. يرجى المحاولة مرة أخرى.");
+      setFormFeedback(
+        error.message || "حدث خطأ أثناء إرسال النموذج. يرجى المحاولة مرة أخرى."
+      );
     } finally {
       setIsSubmitting(false);
     }
