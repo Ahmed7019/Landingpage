@@ -8,10 +8,10 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image() {
-  // Load the Cairo font
+  // Load the Cairo font directly
   const cairoFont = await fetch(
     new URL(
-      "https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap"
+      "https://fonts.gstatic.com/s/cairo/v20/SLXVc1nY6HkvangtZmpcWmhzfH5lWWgcQyyS4J0.woff2"
     )
   ).then((res) => res.arrayBuffer());
 
