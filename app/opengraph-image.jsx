@@ -8,13 +8,6 @@ export const size = {
 export const contentType = "image/png";
 
 export default async function Image() {
-  // Load the Cairo font in TTF format
-  const cairoFont = await fetch(
-    new URL(
-      "https://fonts.gstatic.com/s/cairo/v20/SLXVc1nY6HkvangtZmpcWmhzfH5lWWgcQyyS4J0.ttf"
-    )
-  ).then((res) => res.arrayBuffer());
-
   return new ImageResponse(
     (
       <div
@@ -30,7 +23,8 @@ export default async function Image() {
           color: "white",
           padding: 48,
           textAlign: "center",
-          fontFamily: "Cairo",
+          fontFamily:
+            "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans Arabic', sans-serif",
         }}
       >
         <div
@@ -87,14 +81,6 @@ export default async function Image() {
     ),
     {
       ...size,
-      fonts: [
-        {
-          name: "Cairo",
-          data: cairoFont,
-          weight: 400,
-          style: "normal",
-        },
-      ],
     }
   );
 }
