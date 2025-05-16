@@ -1,13 +1,14 @@
-import "./globals.css"
-import { Suspense } from "react"
-import Loading from "./loading"
-import { AnimationProvider } from "@/components/animation-provider"
+import "./globals.css";
+import { Suspense } from "react";
+import Loading from "./loading";
+import { AnimationProvider } from "@/components/animation-provider";
 
 export const metadata = {
   title: {
     default: "سويفت - خدمات التسويق الرقمي المبتكرة في مصر",
     template: "%s | سويفت للتسويق الرقمي",
-    absolute: "Swift - Innovative Digital Marketing Services in Egypt | سويفت للتسويق الرقمي",
+    absolute:
+      "Swift - Innovative Digital Marketing Services in Egypt | سويفت للتسويق الرقمي",
   },
   description: {
     default:
@@ -58,7 +59,8 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "سويفت - خدمات التسويق الرقمي المبتكرة في مصر | Swift Digital Marketing Egypt",
+    title:
+      "سويفت - خدمات التسويق الرقمي المبتكرة في مصر | Swift Digital Marketing Egypt",
     description: {
       ar: "شركة سويفت المتخصصة في خدمات التسويق الرقمي، التصميم الجرافيكي، صناعة المحتوى وإدارة وسائل التواصل الاجتماعي",
       en: "Swift specializes in digital marketing services, graphic design, content creation, and social media management in Egypt",
@@ -93,8 +95,8 @@ export const metadata = {
     "msvalidate.01": "microsoft_verification_token",
     "facebook-domain-verification": "facebook_verification_token",
   },
-    generator: 'v0.dev'
-}
+  generator: "v0.dev",
+};
 
 export default function RootLayout({ children }) {
   return (
@@ -102,20 +104,32 @@ export default function RootLayout({ children }) {
       <head>
         <meta name="theme-color" content="#0a0a0f" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet"
+        />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/manifest.json" />
         {/* Alternate language version */}
         <link rel="alternate" hrefLang="en" href="https://swift-eg.com/en" />
         <link rel="alternate" hrefLang="ar" href="https://swift-eg.com" />
-        <link rel="alternate" hrefLang="x-default" href="https://swift-eg.com" />
+        <link
+          rel="alternate"
+          hrefLang="x-default"
+          href="https://swift-eg.com"
+        />
       </head>
-      <body>
+      <body className="font-cairo">
         <AnimationProvider>
           <Suspense fallback={<Loading />}>{children}</Suspense>
         </AnimationProvider>
       </body>
     </html>
-  )
+  );
 }
