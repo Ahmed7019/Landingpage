@@ -1,3 +1,7 @@
+// This file is temporarily disabled
+// Renamed from opengraph-image.jsx to opengraph-image.jsx.disabled
+// To re-enable, rename back to opengraph-image.jsx
+
 import { ImageResponse } from "next/og";
 import { readFileSync } from "fs";
 import { join } from "path";
