@@ -1,4 +1,6 @@
 import { ImageResponse } from "next/og";
+import { readFileSync } from "fs";
+import { join } from "path";
 
 export const alt = "Swift Digital Marketing Egypt | سويفت للتسويق الرقمي مصر";
 export const size = {
@@ -7,7 +9,12 @@ export const size = {
 };
 export const contentType = "image/png";
 
-export default function Image() {
+export default async function Image() {
+  // Load the Noto Naskh Arabic font
+  const notoNaskhArabic = readFileSync(
+    join(process.cwd(), "public/fonts/NotoNaskhArabic-Regular.ttf")
+  );
+
   return new ImageResponse(
     (
       <div
@@ -78,6 +85,7 @@ export default function Image() {
             color: "white",
             marginBottom: "40px",
             textAlign: "center",
+            fontFamily: "Noto Naskh Arabic",
           }}
         >
           خدمات التسويق الرقمي في مصر
@@ -106,6 +114,7 @@ export default function Image() {
               fontSize: "32px",
               color: "#9ca3af",
               textAlign: "center",
+              fontFamily: "Noto Naskh Arabic",
             }}
           >
             تصميم جرافيكي | صناعة محتوى | تصوير فيديوهات
@@ -137,6 +146,14 @@ export default function Image() {
     ),
     {
       ...size,
+      fonts: [
+        {
+          name: "Noto Naskh Arabic",
+          data: notoNaskhArabic,
+          weight: 400,
+          style: "normal",
+        },
+      ],
     }
   );
 }
