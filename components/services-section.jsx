@@ -1,14 +1,24 @@
-"use client"
-import { PenTool, FileText, Video, BarChart2, Instagram, Users } from "lucide-react"
-import OptimizedMotion from "./optimized-motion"
-import LazyComponent from "./lazy-component"
+"use client";
+import {
+  PenTool,
+  FileText,
+  Video,
+  BarChart2,
+  Instagram,
+  Users,
+} from "lucide-react";
+import OptimizedMotion from "./optimized-motion";
+import LazyComponent from "./lazy-component";
 
 export default function ServicesSection() {
   const services = [
     {
       id: 1,
       title: "التصميم الجرافيكي",
-      description: ["تصميم بصري احترافي يعكس هوية العلامة التجارية.", "تصميم شعارات، هوية بصرية، وبوسترات جذابة."],
+      description: [
+        "تصميم بصري احترافي يعكس هوية العلامة التجارية.",
+        "تصميم شعارات، هوية بصرية، وبوسترات جذابة.",
+      ],
       icon: PenTool,
     },
     {
@@ -41,16 +51,21 @@ export default function ServicesSection() {
     {
       id: 5,
       title: "إدارة برامج التواصل الاجتماعي",
-      description: ["إدارة حسابات العلامات التجارية باحترافية.", "تحليل الأداء وتحسين التفاعل مع الجمهور."],
+      description: [
+        "إدارة حسابات العلامات التجارية باحترافية.",
+        "تحليل الأداء وتحسين التفاعل مع الجمهور.",
+      ],
       icon: Instagram,
     },
     {
       id: 6,
       title: "التنسيق مع المؤثرين",
-      description: ["تنظيم حملات مؤثرة بالتعاون مع فريق مؤثرينا المتميزين لضمان الوصول إلى جمهور أوسع."],
+      description: [
+        "تنظيم حملات مؤثرة بالتعاون مع فريق مؤثرينا المتميزين لضمان الوصول إلى جمهور أوسع.",
+      ],
       icon: Users,
     },
-  ]
+  ];
 
   return (
     <section id="services" className="py-20 bg-gray-950 overflow-hidden">
@@ -58,40 +73,76 @@ export default function ServicesSection() {
         <OptimizedMotion
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{
+            duration: 0.5,
+            ease: [0.22, 1, 0.36, 1],
+          }}
           viewport={{ once: true, amount: 0.2 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">خدماتنا</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
+            خدماتنا
+          </h2>
           <p className="text-gray-400 max-w-2xl mx-auto">
-            نقدم مجموعة متكاملة من الخدمات الاحترافية لمساعدة علامتك التجارية على النمو والتميز في السوق
+            نقدم مجموعة متكاملة من الخدمات الاحترافية لمساعدة علامتك التجارية
+            على النمو والتميز في السوق
           </p>
         </OptimizedMotion>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-full">
           {services.map((service, index) => (
-            <LazyComponent key={service.id} threshold={0.1} rootMargin="100px">
+            <LazyComponent key={service.id} threshold={0.1} rootMargin="50px">
               <OptimizedMotion
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
+                transition={{
+                  duration: 0.4,
+                  ease: [0.22, 1, 0.36, 1],
+                  delay: index * 0.1,
+                }}
                 viewport={{ once: true, amount: 0.2 }}
-                whileHover={{ y: -5, transition: { duration: 0.3 } }}
-                className="bg-gray-900 rounded-lg p-6 md:p-8 shadow-lg shadow-emerald-900/10 border border-gray-800 hover:border-emerald-800 transition-colors h-full"
+                whileHover={{
+                  y: -5,
+                  transition: { duration: 0.2 },
+                }}
+                className="bg-gray-900 rounded-lg p-6 md:p-8 shadow-lg shadow-emerald-900/10 border border-gray-800 hover:border-emerald-800 transition-all duration-200 h-full"
               >
                 <article>
-                  <div className="w-16 h-16 bg-emerald-900/30 rounded-lg flex items-center justify-center mb-6 text-emerald-400">
+                  <OptimizedMotion
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{
+                      duration: 0.3,
+                      delay: index * 0.1 + 0.1,
+                    }}
+                    className="w-16 h-16 bg-emerald-900/30 rounded-lg flex items-center justify-center mb-6 text-emerald-400"
+                  >
                     <service.icon size={32} aria-hidden="true" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-4 text-white">{service.title}</h3>
+                  </OptimizedMotion>
+                  <h3 className="text-xl font-bold mb-4 text-white">
+                    {service.title}
+                  </h3>
                   <ul className="space-y-2">
                     {service.description.map((item, index) => (
-                      <li key={index} className="text-gray-400 flex items-start">
-                        <span className="text-emerald-400 ml-2" aria-hidden="true">
-                          •
-                        </span>
-                        <span>{item}</span>
-                      </li>
+                      <OptimizedMotion
+                        key={index}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{
+                          duration: 0.3,
+                          delay: index * 0.05 + service.id * 0.05,
+                        }}
+                      >
+                        <li className="text-gray-400 flex items-start">
+                          <span
+                            className="text-emerald-400 ml-2"
+                            aria-hidden="true"
+                          >
+                            •
+                          </span>
+                          <span>{item}</span>
+                        </li>
+                      </OptimizedMotion>
                     ))}
                   </ul>
                 </article>
@@ -101,5 +152,5 @@ export default function ServicesSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

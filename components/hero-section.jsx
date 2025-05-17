@@ -1,12 +1,14 @@
-"use client"
-import Link from "next/link"
-import { Zap } from "lucide-react"
-import OptimizedMotion from "./optimized-motion"
+"use client";
+import Link from "next/link";
+import { Zap } from "lucide-react";
+import OptimizedMotion from "./optimized-motion";
+import FloatingIcons from "./floating-icons";
 
 export default function HeroSection() {
   return (
     <section className="relative pt-24 pb-16 md:pt-36 md:pb-32 overflow-hidden">
       <div className="absolute inset-0 bg-gray-950 -z-10"></div>
+      <FloatingIcons />
 
       {/* Decorative elements */}
       <div className="absolute top-20 left-10 w-64 h-64 bg-emerald-900 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
@@ -26,21 +28,30 @@ export default function HeroSection() {
                 <div className="flex items-center justify-center md:justify-end">
                   <div className="flex items-center">
                     <Zap className="text-emerald-400 h-10 w-10 mr-2" />
-                    <span className="text-4xl font-bold text-emerald-400" style={{ fontFamily: "Arial, sans-serif" }}>
+                    <span
+                      className="text-4xl font-bold text-emerald-400"
+                      style={{ fontFamily: "Arial, sans-serif" }}
+                    >
                       Swift
                     </span>
                   </div>
                 </div>
               </div>
               <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4 md:mb-6">
-                <span className="text-emerald-400">رسالتنا</span> هي تمكين العلامات التجارية
+                <span className="text-emerald-400">رسالتنا</span> هي تمكين
+                العلامات التجارية
               </h1>
               <p className="text-base md:text-lg lg:text-xl text-gray-300 mb-6 md:mb-8 leading-relaxed">
-                نمكن العلامات التجارية من تحقيق أقصى إمكاناتها من خلال تقديم محتوى مبتكر، استراتيجيات فعّالة، وشراكات
-                مستدامة تسهم في بناء صورة قوية في السوق.
+                نمكن العلامات التجارية من تحقيق أقصى إمكاناتها من خلال تقديم
+                محتوى مبتكر، استراتيجيات فعّالة، وشراكات مستدامة تسهم في بناء
+                صورة قوية في السوق.
               </p>
               <div className="flex flex-col sm:flex-row justify-center md:justify-end gap-3 md:gap-4">
-                <OptimizedMotion whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
+                <OptimizedMotion
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full sm:w-auto"
+                >
                   <Link
                     href="#contact"
                     className="inline-block w-full sm:w-auto text-center px-6 py-3 bg-emerald-600 text-white font-medium rounded-md shadow-lg shadow-emerald-900/30 hover:bg-emerald-500 transition-colors"
@@ -48,7 +59,11 @@ export default function HeroSection() {
                     تواصل معنا
                   </Link>
                 </OptimizedMotion>
-                <OptimizedMotion whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
+                <OptimizedMotion
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full sm:w-auto"
+                >
                   <Link
                     href="#services"
                     className="inline-block w-full sm:w-auto text-center px-6 py-3 bg-gray-800 text-emerald-400 font-medium rounded-md shadow-lg shadow-emerald-900/20 border border-emerald-800 hover:bg-gray-700 transition-colors"
@@ -75,8 +90,9 @@ export default function HeroSection() {
                       مع شركة سويفت، النجاح ليس مجرد هدف، بل أسلوب حياة
                     </p>
                     <p className="text-gray-300 leading-relaxed">
-                      إذا كنت تبحث عن فريق يُترجم أفكارك إلى نتائج، نحن هنا لتقديم حلول مميزة تحقق طموحاتك. دعنا نكون
-                      شركاء في رحلتك نحو النجاح!
+                      إذا كنت تبحث عن فريق يُترجم أفكارك إلى نتائج، نحن هنا
+                      لتقديم حلول مميزة تحقق طموحاتك. دعنا نكون شركاء في رحلتك
+                      نحو النجاح!
                     </p>
                   </div>
                 </div>
@@ -86,5 +102,5 @@ export default function HeroSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
